@@ -10,6 +10,7 @@ import { RegisterComponent } from './register/register.component';
 import { APP_ROUTING } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { PreferenciasComponent } from './preferencias/preferencias.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     LoginComponent,
     ListaRecomendacionesComponent,
-    RegisterComponent
+    RegisterComponent,
+    PreferenciasComponent
   ],
   imports: [
     BrowserModule,
