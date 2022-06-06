@@ -9,21 +9,32 @@ import json
 
 import time
 
+import preprocessing as pp
+
+user_id = 216006
+K_rec = 50
+
+#Load datasets
+ratings, movies = pp.load_datasets()
+print('Datasets loaded.')
+
+print(movies)
+
+print(ratings)
 
 
 
+#dataset_path = 'dataset/ml-latest-small/'
 
-dataset_path = 'dataset/ml-latest-small/'
+#df_movies = pd.read_csv(dataset_path + 'movies.csv')
 
-df_movies = pd.read_csv(dataset_path + 'movies.csv')
+#print(df_movies)
 
-print(df_movies)
+#df_ratings = pd.read_csv(dataset_path + 'ratings.csv')
 
-df_ratings = pd.read_csv(dataset_path + 'ratings.csv')
+#print(df_ratings)
 
-print(df_ratings)
-
-users = pd.DataFrame(df_ratings["userId"].unique(), columns = ['userId'])
+users = pd.DataFrame(ratings["userId"].unique(), columns = ['userId'])
 
 print(users)
 
