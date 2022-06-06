@@ -34,7 +34,7 @@ print(ratings)
 
 #print(df_ratings)
 
-users = pd.DataFrame(ratings["userId"].unique(), columns = ['userId'])
+users = pd.DataFrame(ratings["user_id"].unique(), columns = ['userId'])
 
 print(users)
 
