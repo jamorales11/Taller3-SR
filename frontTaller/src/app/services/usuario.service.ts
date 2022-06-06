@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Usuario } from '../usuario/usuario';
 
 
 const API_URL = "http://172.24.41.184:8081/"
@@ -25,6 +26,10 @@ export class UsuarioService {
 
   get_usuario(id:string){
     return this.http.get(API_URL + 'get_usuario/' + id);
+  }
+
+  createUsuario(usuario: Usuario){
+    return this.http.post(API_URL + 'create_usuario', usuario, this.httpOptions);
   }
 
   get_recomendaciones_by_id(id:string){

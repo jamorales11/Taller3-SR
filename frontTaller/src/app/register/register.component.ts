@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UsuarioService } from '../services/usuario.service';
+import { Usuario } from '../usuario/usuario';
 
 @Component({
   selector: 'app-register',
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private usuarioService: UsuarioService, private router: Router) { }
+
+  nuevoUsuario: Usuario = new Usuario;
+
+  
+
+  createUsuario(): Usuario{
+    console.log("Formulario enviado");
+    
+    console.log(this.nuevoUsuario);
+
+    
+    this.usuarioService.createUsuario(this.nuevoUsuario).subscribe((usuario: any) => {
+      this.nuevoUsuario = usuario;
+      this.usuarioService.idLogged = this.nuevoUsuario.id;
+      this.usuarioService.setLogStatus(true);
+      this.router.navigate(['/usuario'])
+    });
+    
+    return this.nuevoUsuario;
+  }
 
   ngOnInit(): void {
+    this.nuevoUsuario = new Usuario;
   }
 
 }
