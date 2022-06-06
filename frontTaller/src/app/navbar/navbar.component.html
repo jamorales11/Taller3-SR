@@ -22,6 +22,7 @@
 
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <button class="btn btn-secondary me-md-2" type="button" routerLink="/login" routerLinkActive="active" *ngIf="!usuarioService.loggedIn"> Log In</button>
+        <button class="btn btn-secondary me-md-2" type="button" routerLink="/register" routerLinkActive="active" *ngIf="!usuarioService.loggedIn"> Register</button>
         <button class="btn btn-danger" type="button" (click)="logout()" routerLink="/login" routerLinkActive="active" *ngIf="usuarioService.loggedIn" >Log Out</button>
       </div>
 
