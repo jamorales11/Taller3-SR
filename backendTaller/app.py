@@ -102,5 +102,5 @@ def get_recomendaciones(id):
     #imp_feat = ["Ford", "Ford", "Ford"]
     #imp_user = [{"model": "Mustang"}, {"model": "Mustang"}, {"model": "Mustang"}]
 
-    return jsonify(recommendaciones=recommendations.to_json(orient="records"))
+    return jsonify(recommendaciones=recommendations)
 
