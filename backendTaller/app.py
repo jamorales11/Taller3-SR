@@ -5,37 +5,27 @@ import os
 import pandas as pd
 import numpy as np
 import json
-import folium
 
 
 import time
 
-from sklearn.model_selection import train_test_split
-from scipy import spatial
 
-from sklearn.metrics import pairwise_distances
-from scipy.spatial.distance import cosine
-from sklearn.feature_selection import chi2
 
-from sklearn.neighbors import KNeighborsClassifier
-
-from sklearn.metrics import precision_recall_fscore_support
-
-import User_User_RS as uu_rs
-import Content_Based_RS as cb_rs
-import preprocessing as pp
 
 
 dataset_path = 'dataset/ml-latest-small/'
 
-df_movies = pd.read_json(dataset_path + 'movies.json', lines=True)
+df_movies = pd.read_csv(dataset_path + 'movies.csv')
 
 print(df_movies)
 
-df_ratings = pd.read_json(dataset_path + 'ratings.json', lines=True)
+df_ratings = pd.read_csv(dataset_path + 'ratings.csv')
 
 print(df_ratings)
 
+users = pd.DataFrame(df_ratings["userId"].unique(), columns = ['userId'])
+
+print(users)
 
 
 app = Flask(__name__)
@@ -51,18 +41,26 @@ def hello_from_root():
 @app.route("/get_usuario/<id>", methods= ["POST", "GET"])
 def get_usuario_df(id):
     print(id)
+    usuario = False
 
-    #user_info = df_users[df_users['user_id'] == id][['name', 'review_count', 'yelping_since']]
+    if users.loc[lambda users: users["userId"] == int(id)].empty == True:
+        print("No existe este usuario")
+    else:
+        print("usuario encontrado")
+        return users.loc[lambda users: users["userId"] == int(id)].to_json()
+    return jsonify(False)
+    
 
-    return user_info.to_json(orient="records")
+    
+@app.route("/create_usuario", methods= ["POST"])
+def create_usuario_df():
+    global users
 
-
-
-
-@app.route("/get_business/<id>", methods=["POST", "GET"])
-def get_business(id):
-    print(request.json)
-
+    if users.loc[lambda users: users["userId"] == int(request.json["userId"])].empty == True:
+        data = pd.DataFrame(data=request.json, index=[0])
+        result = pd.concat([users, data], ignore_index=True)
+        users = result
+        print(users)
     return request.json
 
 
