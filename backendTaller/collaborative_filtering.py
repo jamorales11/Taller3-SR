@@ -31,9 +31,14 @@ def get_recommendations(ratings, user_id, K_rec):
     
     # Extract most similar users that watch the same movies that the user
     user_movies = list(ratings[ratings['user_id']==user_id]['movie_id'].drop_duplicates())
+    print(user_movies)
     ratings_user = ratings[ratings['movie_id'].isin(user_movies)]
+    print(ratings_user)
+
     K = 50
     sim_users = get_similarity_users(ratings_user, user_id, K)
+    print(sim_users)
+
     
     means_user_ratings = ratings_user[['user_id', 'rating']].groupby('user_id').mean().rename_axis('user_id').reset_index()
     sim_users = sim_users.merge(means_user_ratings, on='user_id', how='left')
