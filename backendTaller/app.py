@@ -14,7 +14,6 @@ import preprocessing as pp
 import content_based as cb
 import graph_based as gb
 
-user_id = 216006
 K_rec = 50
 
 #Load datasets
@@ -93,7 +92,7 @@ def create_usuario_df():
 def get_recomendaciones(id):
     print(id)
 
-    recommendations = generate_recommendations(user_id, K_rec, ratings, movies)
+    recommendations = generate_recommendations(id, K_rec, ratings, movies)
     print(recommendations)
 
     #recommendations = [{"name": "1", "latitude":4.713991455266561, "longitude": -74.0299935}, 
