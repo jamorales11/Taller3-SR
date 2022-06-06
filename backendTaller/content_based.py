@@ -3,8 +3,8 @@ import contractions
 import inflect
 import pandas as pd
 
-import nlkt
-nlkt.download('punkt')
+import nltk 
+nltk.download('punkt')
 
 from nltk import word_tokenize
 from nltk.corpus import stopwords
