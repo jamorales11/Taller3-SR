@@ -91,8 +91,10 @@ def create_usuario_df():
 @app.route("/get_recomendaciones/<id>", methods=["POST", "GET"])
 def get_recomendaciones(id):
     print(id)
+    type(id)
+    
 
-    recommendations = generate_recommendations(id, K_rec, ratings, movies)
+    recommendations = generate_recommendations(int(id), K_rec, ratings, movies)
     print(recommendations)
 
     #recommendations = [{"name": "1", "latitude":4.713991455266561, "longitude": -74.0299935}, 

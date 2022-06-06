@@ -36,7 +36,7 @@ export class UsuarioService {
     return this.http.post(API_URL + 'add_preferencias', preferencias, this.httpOptions);
   }
 
-  get_recomendaciones_by_id(id:number){
+  get_recomendaciones_by_id(id:string){
     return this.http.get(API_URL + 'get_recomendaciones/' + id, this.httpOptions);
   }
 
