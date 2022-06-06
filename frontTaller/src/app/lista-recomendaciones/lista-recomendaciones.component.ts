@@ -17,7 +17,7 @@ export class ListaRecomendacionesComponent implements OnInit {
 
 
   constructor(private usuarioService: UsuarioService) { 
-    this.usuarioService.get_recomendaciones_by_id(usuarioService.idLogged).subscribe((data:any)=>{
+    this.usuarioService.get_recomendaciones_by_id(Number(usuarioService.idLogged)).subscribe((data:any)=>{
       console.log(data);
       // console.log(JSON.parse(data["recommendaciones"]));
       // console.log(JSON.parse(data["usuarios"]));
