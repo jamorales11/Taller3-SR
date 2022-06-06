@@ -9,7 +9,10 @@ import json
 
 import time
 
+import collaborative_filtering as cf
 import preprocessing as pp
+import content_based as cb
+import graph_based as gb
 
 user_id = 216006
 K_rec = 50
@@ -23,20 +26,29 @@ print(movies)
 print(ratings)
 
 
-
-#dataset_path = 'dataset/ml-latest-small/'
-
-#df_movies = pd.read_csv(dataset_path + 'movies.csv')
-
-#print(df_movies)
-
-#df_ratings = pd.read_csv(dataset_path + 'ratings.csv')
-
-#print(df_ratings)
-
 users = pd.DataFrame(ratings["user_id"].unique(), columns = ['userId'])
 
 print(users)
+
+def generate_recommendations(user_id, K_rec, ratings, movies):
+    
+    #Generate collaborative recommendations
+    sim_users, recommendations_user_user = cf.get_recommendations(ratings, user_id, K_rec)
+    print('Collaborative filtering recommendations created.')
+    
+    #Generate content based recommendations
+    recommendations_content_based = cb.get_recommendations(movies, ratings, user_id, K_rec)
+    print('Content based recommendations created.')
+    
+    #Rank recommendations generated with CB and CF using graphs and PageRank
+    movies_rec, df_rec = gb.get_recommendations(movies, ratings, recommendations_user_user, recommendations_content_based)
+    print('Recommendations ranked using PageRank.')
+    
+    #Generation of figure corresponding to user movie recommendations graph
+    gb.gen_figure(df_rec)
+    print('Graph created.')
+    
+    return movies_rec
 
 
 app = Flask(__name__)
@@ -81,11 +93,14 @@ def create_usuario_df():
 def get_recomendaciones(id):
     print(id)
 
-    recommendations = [{"name": "1", "latitude":4.713991455266561, "longitude": -74.0299935}, 
-                        {"name": "2", "latitude":4.705394596794235, "longitude": -74.03334089677242}]
-
-    imp_feat = ["Ford", "Ford", "Ford"]
-    imp_user = [{"model": "Mustang"}, {"model": "Mustang"}, {"model": "Mustang"}]
+    recommendations = generate_recommendations(user_id, K_rec, ratings, movies)
     print(recommendations)
-    return jsonify(recommendaciones=recommendations.to_json(orient="records"), features= imp_feat, usuarios = imp_user.to_json(orient="records"))
+
+    #recommendations = [{"name": "1", "latitude":4.713991455266561, "longitude": -74.0299935}, 
+                        #{"name": "2", "latitude":4.705394596794235, "longitude": -74.03334089677242}]
+
+    #imp_feat = ["Ford", "Ford", "Ford"]
+    #imp_user = [{"model": "Mustang"}, {"model": "Mustang"}, {"model": "Mustang"}]
+
+    return jsonify(recommendaciones=recommendations.to_json(orient="records"))
 
