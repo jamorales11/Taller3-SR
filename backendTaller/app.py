@@ -21,6 +21,11 @@ K_rec = 50
 
 #Load datasets
 ratings, movies = pp.load_datasets()
+result = ratings.dtypes
+
+print("Output:")
+print(result)
+
 print('Datasets loaded.')
 
 print(movies)
@@ -80,11 +85,7 @@ def get_usuario_df(id):
 @app.route("/create_usuario", methods= ["POST"])
 def create_usuario_df():
     global users
-    print(request.json["userId"])
-    print(request.json)
-
-    print(type(request.json["userId"]))
-    print(type(request.json))
+    
 
     if users.loc[lambda users: users["userId"] == int(request.json["userId"])].empty == True:
         data = pd.DataFrame(data=request.json, index=[0])
