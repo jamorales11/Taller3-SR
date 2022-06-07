@@ -127,12 +127,12 @@ def get_movies():
 def add_preferencias_df():
     print(request.json)
 
-    #global songs
+    global ratings
     data = pd.DataFrame(data=request.json)
     print(data)
 
-    #result = pd.concat([songs, data], ignore_index=True)
-    #songs = result
-    #print(songs)
+    result = pd.concat([ratings, data], ignore_index=True)
+    ratings = result
+    print(ratings)
     
     return data.to_json()
