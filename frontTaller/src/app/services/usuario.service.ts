@@ -24,6 +24,10 @@ export class UsuarioService {
     headers: new HttpHeaders({ "Content-Type": "application/json" })
   };
 
+  httpOptions2 = {
+    headers: new HttpHeaders({ "Content-Type": "image/png" })
+  };
+
   get_usuario(id:string){
     return this.http.get(API_URL + 'get_usuario/' + id);
   }
@@ -41,7 +45,7 @@ export class UsuarioService {
   }
 
   get_grafo(){
-    return this.http.get(API_URL + 'get_grafo', this.httpOptions);
+    return this.http.get(API_URL + 'get_grafo', this.httpOptions2);
   }
 
   getLogStatus (){
