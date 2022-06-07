@@ -46,7 +46,7 @@ export class ListaRecomendacionesComponent implements OnInit {
 
       
       // console.log(JSON.parse(data["recommendaciones"]));
-      // console.log(JSON.parse(data["usuarios"]));
+      console.log(JSON.parse(data["usuarios"]));
       // console.log(data["features"]);
 
       this.recomendaciones = data["recommendaciones"];
