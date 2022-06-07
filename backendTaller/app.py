@@ -108,6 +108,12 @@ def get_recomendaciones(id):
     data = file.stream.read()
     data = base64.encodebytes(data)
 
+    print(img.width)
+    print(img.height)
+    print(data)
+
+
+
     #recommendations = [{"name": "1", "latitude":4.713991455266561, "longitude": -74.0299935}, 
                         #{"name": "2", "latitude":4.705394596794235, "longitude": -74.03334089677242}]
 
