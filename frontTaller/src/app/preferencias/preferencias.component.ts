@@ -11,7 +11,9 @@ export class PreferenciasComponent implements OnInit {
 
   movies : any[] = [];
   seleccionadas: any[] = [];
-  seleccion: any;
+  
+  seleccion: string= "";
+  calificacion: number = 0;
 
   seleccionCompleta: boolean = false;
 
@@ -29,18 +31,25 @@ export class PreferenciasComponent implements OnInit {
 
 
   agregarDeBuscador(){
-    let peli = this.movies.find(element => element['title'] == this.seleccion);
+
+    if(this.seleccion != ""){
+      let peli = this.movies.find(element => element['title'] == this.seleccion);
+
+      peli.rating = this.calificacion;
 
       console.log(peli);
     
-    if(!this.seleccionadas.includes(peli)){
-      this.seleccionadas.push(peli);
-      
-      console.log(this.seleccionadas);
+      if(!this.seleccionadas.includes(peli)){
+        this.seleccionadas.push(peli);
+        
+        console.log(this.seleccionadas);
 
-      this.seleccion = "";
+        this.seleccion = "";
+        this.calificacion = 0;
 
+      }
     }
+    
     if(this.seleccionadas.length == 10){
       this.seleccionCompleta = true;
     }
