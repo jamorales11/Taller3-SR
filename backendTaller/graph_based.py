@@ -78,5 +78,4 @@ def gen_figure(recom):
 
     pos = nx.spring_layout(G_rec)
     nx.draw(G_rec, with_labels=True, node_color=color_map, edge_cmap=plt.cm.Blues, pos = pos)
-    plt.show()
-    plt.savefig('recommended_movies_graph.png')
+    plt.savefig('recommended_movies_graph.jpg')
