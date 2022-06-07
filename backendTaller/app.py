@@ -113,9 +113,9 @@ def get_recomendaciones(id):
 
 @app.route("/get_grafo", methods=["POST", "GET"])
 def get_grafo():
-    filename = 'recommended_movies_graph.png'
+    filename = 'recommended_movies_graph.jpg'
 
-    return send_file(filename, mimetype='image/png')
+    return send_file(filename, mimetype='image/jpeg')
 
 
 @app.route("/get_movies", methods=["POST", "GET"])
