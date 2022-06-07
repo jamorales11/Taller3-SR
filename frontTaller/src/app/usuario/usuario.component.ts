@@ -17,6 +17,8 @@ export class UsuarioComponent implements OnInit {
 
      console.log(data[0]);
 
+     console.log(usuarioService.idLogged);
+
       this.usuario.userId = usuarioService.idLogged;
 
       console.log(this.usuario);
