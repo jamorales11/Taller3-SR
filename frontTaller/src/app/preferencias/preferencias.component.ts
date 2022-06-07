@@ -72,7 +72,7 @@ export class PreferenciasComponent implements OnInit {
     let j = 10-i;
 
     while(j>0){
-      let incidencia = {"user_id": this.usuarioService.idLogged,'artist_id': this.movies.find(element => element["artist_name"] == this.seleccionadas[i]).artist_id, "artist_name": this.seleccionadas[i], 'track_id': "", 'track_name': ""};
+      let incidencia = {"user_id": this.usuarioService.idLogged,'movie_id': this.seleccionadas[i].movie_id, "rating": this.seleccionadas[i].rating, 'timestamp': ""};
       incidencias.push(incidencia);
       j--;
     }
