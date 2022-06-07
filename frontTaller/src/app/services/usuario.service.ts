@@ -14,7 +14,7 @@ export class UsuarioService {
 
   loggedIn : boolean = false;
 
-  idLogged: string = "";
+  idLogged: number = 0;
 
   constructor( private http: HttpClient) { 
     console.log("Usuario API lista")
@@ -28,7 +28,7 @@ export class UsuarioService {
     headers: new HttpHeaders({ "Content-Type": "image/png" })
   };
 
-  get_usuario(id:string){
+  get_usuario(id:number){
     return this.http.get(API_URL + 'get_usuario/' + id);
   }
 
