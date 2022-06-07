@@ -13,7 +13,7 @@ export class PreferenciasComponent implements OnInit {
   seleccionadas: any[] = [];
   
   seleccion: string= "";
-  calificacion: number = 0;
+  calificacion: string = "";
 
   seleccionCompleta: boolean = false;
 
@@ -34,8 +34,10 @@ export class PreferenciasComponent implements OnInit {
 
     if(this.seleccion != ""){
       let peli = this.movies.find(element => element['title'] == this.seleccion);
+      console.log(this.calificacion);
 
-      peli.rating = this.calificacion;
+
+      peli.rating = Number(this.calificacion);
 
       console.log(peli);
     
@@ -45,7 +47,7 @@ export class PreferenciasComponent implements OnInit {
         console.log(this.seleccionadas);
 
         this.seleccion = "";
-        this.calificacion = 0;
+        this.calificacion = "";
 
       }
     }
