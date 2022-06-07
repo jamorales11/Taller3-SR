@@ -39,7 +39,7 @@
                     <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search movies..." [(ngModel)]="seleccion" name="movie" [disabled]="seleccionCompleta">
                     <datalist id="datalistOptions">
                         <div *ngFor="let movie of movies">
-                            <option *ngFor ngValue="{{movie['title']}}" >
+                            <option [ngValue]="{{movie}}" > {{movie['title']}} </option>
                         </div>
                     </datalist>
                 </div>
