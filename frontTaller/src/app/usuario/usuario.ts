@@ -1,7 +1,7 @@
 export class Usuario{
-    userId: number;
+    userId: any;
 
     constructor(){
-        this.userId =0;
+        this.userId ="";
     }
 }
