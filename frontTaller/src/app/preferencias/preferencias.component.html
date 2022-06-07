@@ -50,7 +50,7 @@
             <br>
             <h4> Lista artistas seleccionados</h4>
             <ol class="list-group" *ngFor="let seleccionado of seleccionadas">
-                <li class="list-group-item">{{seleccionadas.indexOf(seleccionado)+1}}. {{seleccionado['title']}}
+                <li class="list-group-item">{{seleccionadas.indexOf(seleccionado)+1}}. {{seleccionado['title']}} <br> Rating: {{seleccionado['rating']}}
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end"> 
 
 
