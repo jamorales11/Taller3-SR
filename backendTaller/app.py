@@ -55,7 +55,7 @@ def generate_recommendations(user_id, K_rec, ratings, movies):
     gb.gen_figure(df_rec)
     print('Graph created.')
     
-    return movies_rec
+    return movies_rec, sim_users
 
 
 app = Flask(__name__)
@@ -104,8 +104,9 @@ def get_recomendaciones(id):
     type(id)
     
     os.remove('recommended_movies_graph.png')
-    recommendations = generate_recommendations(int(id), K_rec, ratings, movies)
+    recommendations, users_imp = generate_recommendations(int(id), K_rec, ratings, movies)
     print(recommendations)
+    print(users_imp.head(20))
 
 
     return jsonify(recommendaciones=recommendations)
