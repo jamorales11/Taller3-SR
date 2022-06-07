@@ -50,7 +50,7 @@ export class ListaRecomendacionesComponent implements OnInit {
       // console.log(data["features"]);
 
       this.recomendaciones = data["recommendaciones"];
-      this.usersImportantes = data["usuarios"];
+      this.usersImportantes = JSON.parse(data["usuarios"]);
       // this.features = data["features"];
 
       
