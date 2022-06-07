@@ -45,7 +45,7 @@ export class UsuarioService {
   }
 
   get_grafo(){
-    return this.http.get(API_URL + 'get_grafo', this.httpOptions2);
+    return this.http.get(API_URL + 'get_grafo', { responseType: 'blob' });
   }
 
   getLogStatus (){
