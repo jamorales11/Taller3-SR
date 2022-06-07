@@ -10,8 +10,6 @@ export class ListaRecomendacionesComponent implements OnInit {
 
   recomendaciones : any[] = [];
 
-  features : any[] = [];
-
   usersImportantes : any[] = [];
 
   imageToShow: any;
@@ -52,7 +50,7 @@ export class ListaRecomendacionesComponent implements OnInit {
       // console.log(data["features"]);
 
       this.recomendaciones = data["recommendaciones"];
-      // this.usersImportantes = JSON.parse(data["usuarios"]);
+      this.usersImportantes = data["usuarios"];
       // this.features = data["features"];
 
       

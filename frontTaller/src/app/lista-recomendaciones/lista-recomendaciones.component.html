@@ -40,14 +40,10 @@
   <div *ngFor="let user of usersImportantes" class="col">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">{{user["name"]}}</h5>
-        <p class="card-text"><strong>Review count:</strong> {{user["review_count"]}}</p>
-        <p class="card-text"><strong>Yelping since:</strong> {{user["yelping_since"]}}</p>
+        <h5 class="card-title">{{user["user_id"]}}</h5>
+        <p class="card-text"><strong>Similarity:</strong> {{user["similarity"]}}</p>
       </div>
     </div>
   </div>
 </div>
 
-<br>
-<h4>Features Importantes</h4>
-<br>

@@ -109,7 +109,7 @@ def get_recomendaciones(id):
     print(users_imp.head(20))
 
 
-    return jsonify(recommendaciones=recommendations)
+    return jsonify(recommendaciones=recommendations, usuarios =  users_imp)
 
 
 @app.route("/get_grafo", methods=["POST", "GET"])
