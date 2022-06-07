@@ -48,9 +48,10 @@
                     <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search movies..." [(ngModel)]="seleccion" name="movie" [disabled]="seleccionCompleta">
                     <datalist id="datalistOptions">
                         <div *ngFor="let movie of movies">
-                            <option [ngValue]="movie['movie_id']" > {{movie['title']}} </option>
+                            <option [value]="{{movie['title']}}" >
                         </div>
                     </datalist>
+                    <input type="hidden" name="answer" id="answerInput-hidden">
                 </div>
 
 
@@ -66,7 +67,7 @@
             <br>
             <h4> Lista artistas seleccionados</h4>
             <ol class="list-group" *ngFor="let seleccionado of seleccionadas">
-                <li class="list-group-item">{{seleccionadas.indexOf(seleccionado)+1}}. {{seleccionado}}
+                <li class="list-group-item">{{seleccionadas.indexOf(seleccionado)+1}}. {{seleccionado['title']}}
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end"> 
                     <button type="button" class="btn btn-danger btn me-md-2 btn-sm" (click)="eliminar(seleccionadas.indexOf(seleccionado))">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
