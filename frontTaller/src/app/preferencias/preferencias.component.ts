@@ -11,7 +11,7 @@ export class PreferenciasComponent implements OnInit {
 
   movies : any[] = [];
   seleccionadas: any[] = [];
-  seleccion: string = "";
+  seleccion: any;
 
   seleccionCompleta: boolean = false;
 
