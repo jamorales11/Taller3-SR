@@ -24,6 +24,20 @@
                 </div>
 
 
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                    <option selected>5</option>
+                    <option value="1">4.5</option>
+                    <option value="2">4</option>
+                    <option value="3">3.5</option>
+                    <option value="4">3</option>
+                    <option value="5">2.5</option>
+                    <option value="6">2</option>
+                    <option value="7">1.5</option>
+                    <option value="8">1</option>
+                    <option value="9">0.5</option>
+                    </select>
+
+
                 <button type="submit" class="btn btn-primary" [disabled]="seleccionCompleta">Agregar</button>
                 
                 
@@ -39,18 +53,6 @@
                 <li class="list-group-item">{{seleccionadas.indexOf(seleccionado)+1}}. {{seleccionado['title']}}
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end"> 
 
-                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                        <option selected>5</option>
-                        <option value="1">4.5</option>
-                        <option value="2">4</option>
-                        <option value="3">3.5</option>
-                        <option value="4">3</option>
-                        <option value="5">2.5</option>
-                        <option value="6">2</option>
-                        <option value="7">1.5</option>
-                        <option value="8">1</option>
-                        <option value="9">0.5</option>
-                        </select>
 
                     <button type="button" class="btn btn-danger btn me-md-2 btn-sm" (click)="eliminar(seleccionadas.indexOf(seleccionado))">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
