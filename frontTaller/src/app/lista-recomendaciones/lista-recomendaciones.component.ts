@@ -33,6 +33,8 @@ export class ListaRecomendacionesComponent implements OnInit {
   constructor(private usuarioService: UsuarioService) { 
     this.usuarioService.get_recomendaciones_by_id(usuarioService.idLogged).subscribe((data:any)=>{
       console.log(data);
+
+      //Carga Imagen
       this.isImageLoading = true;
       this.usuarioService.get_grafo().subscribe((dataImg:any)=>{
         console.log(dataImg);
@@ -43,11 +45,13 @@ export class ListaRecomendacionesComponent implements OnInit {
         this.isImageLoading = false;
         console.log(error);
       });
+
+      
       // console.log(JSON.parse(data["recommendaciones"]));
       // console.log(JSON.parse(data["usuarios"]));
       // console.log(data["features"]);
 
-      // this.recomendaciones = JSON.parse(data["recommendaciones"]);
+      this.recomendaciones = data["recommendaciones"];
       // this.usersImportantes = JSON.parse(data["usuarios"]);
       // this.features = data["features"];
 
