@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
 
     this.usuarioService.get_usuario(this.usuarioService.idLogged).subscribe((data: any) => {
       console.log(data);
-      if (data.length == 0){
+      if (data == false){
         console.log("No existe este usuario");
       } else {
         this.usuarioService.setLogStatus(true);

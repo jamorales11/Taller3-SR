@@ -72,8 +72,9 @@ def get_usuario_df(id):
         print("No existe este usuario")
     else:
         print("usuario encontrado")
-    return users.loc[lambda users: users["userId"] == int(id)].to_json()
-
+        return users.loc[lambda users: users["userId"] == int(id)].to_json()
+    return jsonify(False)
+    
 
     
 @app.route("/create_usuario", methods= ["POST"])
