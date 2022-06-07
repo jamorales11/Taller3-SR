@@ -30,7 +30,14 @@ export class PreferenciasComponent implements OnInit {
 
   agregarDeBuscador(){
     if(!this.seleccionadas.includes(this.seleccion)){
-      this.seleccionadas.push(this.seleccion);
+      
+      let peli = this.movies.find(element => element['movie_id'] == this.seleccion
+      );
+
+      console.log(peli);
+
+
+      this.seleccionadas.push(peli);
       
       console.log(this.seleccionadas);
 
