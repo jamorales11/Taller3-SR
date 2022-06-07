@@ -82,7 +82,7 @@ def create_usuario_df():
     global users
 
     if users.loc[lambda users: users["userId"] == int(request.json["userId"])].empty == True:
-        data = pd.DataFrame(data=request.json["userId"], index=[0])
+        data = pd.DataFrame(data=request.json, index=[0])
         result = pd.concat([users, data], ignore_index=True)
         users = result
         print(users)
