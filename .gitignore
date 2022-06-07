@@ -16,3 +16,5 @@ df_business_transformed.pkl
 __pycache__/
 
 dataset
+
+recommended_movies_graph.png
