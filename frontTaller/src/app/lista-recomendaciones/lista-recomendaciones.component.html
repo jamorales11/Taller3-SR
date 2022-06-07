@@ -54,9 +54,11 @@
     </div>
 </div>
 
-<img [src]="imageToShow"
+<div>
+  <img [src]="imageToShow"
      alt="Place image title"
      *ngIf="!isImageLoading; else noImageFound" width="auto">
-<ng-template #noImageFound>
+  <ng-template #noImageFound>
      <img src="fallbackImage.png" alt="Fallbackimage">
-</ng-template>
+  </ng-template>
+</div>
