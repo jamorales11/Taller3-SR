@@ -6,6 +6,9 @@ import pandas as pd
 import numpy as np
 import json
 
+from PIL import Image
+import base64
+
 
 import time
 
@@ -97,11 +100,19 @@ def get_recomendaciones(id):
     recommendations = generate_recommendations(int(id), K_rec, ratings, movies)
     print(recommendations)
 
+
+    #para enviar imagen del grafo en Json
+    file = request.files['recommended_movies_graph.png']
+    img = Image.open(file.stream)
+
+    data = file.stream.read()
+    data = base64.encodebytes(data)
+
     #recommendations = [{"name": "1", "latitude":4.713991455266561, "longitude": -74.0299935}, 
                         #{"name": "2", "latitude":4.705394596794235, "longitude": -74.03334089677242}]
 
     #imp_feat = ["Ford", "Ford", "Ford"]
     #imp_user = [{"model": "Mustang"}, {"model": "Mustang"}, {"model": "Mustang"}]
 
-    return jsonify(recommendaciones=recommendations)
+    return jsonify(recommendaciones=recommendations, imagen={'msg': 'success', 'size': [img.width, img.height], 'img': data})
 
