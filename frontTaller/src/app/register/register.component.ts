@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
       this.nuevoUsuario = usuario;
       this.usuarioService.idLogged = this.nuevoUsuario.userId;
       this.usuarioService.setLogStatus(true);
-      this.router.navigate(['/usuario'])
+      this.router.navigate(['/preferencias'])
     });
     
     return this.nuevoUsuario;
