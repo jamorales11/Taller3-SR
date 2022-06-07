@@ -23,6 +23,27 @@
                     </datalist>
                 </div>
 
+
+                <div class="mb-3">
+                    <div class="mb-3">
+                        <br>
+                        <h3 for="exampleDataList" class="form-label">Agregar peliculas predilectas</h3>
+                        <a> A continuación, registra ratings para 10 películas. Conforme los vayas agregando a la lista, podrás calificarlos de 1 a 5. </a>
+                        <br>
+                        <br>
+                    </div>
+                    
+
+                    <h5 for="exampleDataList" class="form-label">Buscar Peliculas</h5>
+                    <a>Puedes usar esta barra de búsqueda para encontrarlas...</a>
+                    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search movies..." [(ngModel)]="seleccion" name="movie" [disabled]="seleccionCompleta">
+                    <datalist id="datalistOptions">
+                        <div *ngFor="let movie of movies">
+                            <option *ngFor ngValue="{{movie['title']}}" >
+                        </div>
+                    </datalist>
+                </div>
+
                 <button type="submit" class="btn btn-primary" [disabled]="seleccionCompleta">Agregar</button>
                 
                 
