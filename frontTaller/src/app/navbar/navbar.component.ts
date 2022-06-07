@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
 
   logout(){
     this.usuarioService.setLogStatus(false);
-    this.usuarioService.idLogged = "";
+    this.usuarioService.idLogged = 0;
     this.router.navigate(['/login'])
   }
 
