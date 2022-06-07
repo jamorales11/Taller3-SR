@@ -103,7 +103,7 @@ def get_recomendaciones(id):
     print(id)
     type(id)
     
-
+    os.remove('recommended_movies_graph.png')
     recommendations = generate_recommendations(int(id), K_rec, ratings, movies)
     print(recommendations)
 
