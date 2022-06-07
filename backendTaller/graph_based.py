@@ -50,7 +50,7 @@ def get_recommendations(movies, ratings, recommendations_user_user, recommendati
     
     G = nx.from_pandas_edgelist(df_nodes_u, "source", "target", create_using=nx.MultiDiGraph())
     
-    pr = nx.pagerank(G, alpha=0.99, max_iter=5000)
+    pr = nx.pagerank(G, alpha=0.8, max_iter=5000)
     
     K_final_rec = 20
     movies_rec = [x for x in pr.keys() if not(str(x).isnumeric()) and ':' not in x][:K_final_rec]
