@@ -130,8 +130,8 @@ def add_preferencias_df():
 
     global ratings
     data = pd.DataFrame(data=request.json)
-    data["user_id"] = data["userId"].apply(pd.to_numeric)
-    data["movie_id"] = data["userId"].apply(pd.to_numeric)
+    data["user_id"] = data["user_id"].apply(pd.to_numeric)
+    data["movie_id"] = data["movie_id"].apply(pd.to_numeric)
     data = data.astype({"rating": float})
     
     re = ratings.dtypes
