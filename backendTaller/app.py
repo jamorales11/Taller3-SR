@@ -120,7 +120,7 @@ def get_grafo():
 @app.route("/get_movies", methods=["POST", "GET"])
 def get_movies():
 
-    return jsonify(movies = movies.to_json(orient="records"))
+    return jsonify(movies = movies)
 
 
 @app.route("/add_preferencias", methods= ["POST"])
