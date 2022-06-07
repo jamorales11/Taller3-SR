@@ -9,20 +9,16 @@ import { UsuarioService } from '../services/usuario.service';
 })
 export class PreferenciasComponent implements OnInit {
 
-  artistas : any[] = [];
-  populares : any[] = [];
+  movies : any[] = [];
   seleccionadas: any[] = [];
   seleccion: string = "";
 
   seleccionCompleta: boolean = false;
 
   constructor(private usuarioService: UsuarioService, private router: Router) {
-    this.usuarioService.get_artistas_populares().subscribe((data:any) => {
-      this.populares = data;
-    });
 
-    this.usuarioService.get_artistas().subscribe((data:any)=>{
-      this.artistas = data;
+    this.usuarioService.get_movies().subscribe((data:any)=>{
+      this.movies = data;
     });
    }
 
@@ -43,19 +39,6 @@ export class PreferenciasComponent implements OnInit {
   }
 
 
-  agregarDeCheckbox(value:string, checked: boolean){
-    if (checked && !this.seleccionadas.includes(value)){
-      this.seleccionadas.push(value);
-    } else if (!checked) {
-      this.seleccionadas.splice(this.seleccionadas.indexOf(value),1);
-    }
-
-    if(this.seleccionadas.length == 10){
-      this.seleccionCompleta = true;
-    }   
- }
-
-
  isOnList(value:string){
   if(this.seleccionadas.includes(value)){
     return true;
@@ -72,7 +55,7 @@ export class PreferenciasComponent implements OnInit {
     let j = 10-i;
 
     while(j>0){
-      let incidencia = {"user_id": this.usuarioService.idLogged,'artist_id': this.artistas.find(element => element["artist_name"] == this.seleccionadas[i]).artist_id, "artist_name": this.seleccionadas[i], 'track_id': "", 'track_name': ""};
+      let incidencia = {"user_id": this.usuarioService.idLogged,'artist_id': this.movies.find(element => element["artist_name"] == this.seleccionadas[i]).artist_id, "artist_name": this.seleccionadas[i], 'track_id': "", 'track_name': ""};
       incidencias.push(incidencia);
       j--;
     }

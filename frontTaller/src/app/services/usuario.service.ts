@@ -57,12 +57,9 @@ export class UsuarioService {
     this.loggedIn = status;
   }
 
-  get_artistas_populares(){
-    return this.http.get(API_URL + 'get_popular_artists');
-  }
 
-  get_artistas(){
-    return this.http.get(API_URL + 'get_artists');
+  get_movies(){
+    return this.http.get(API_URL + 'get_movies');
   }
 
 }

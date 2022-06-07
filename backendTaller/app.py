@@ -115,3 +115,24 @@ def get_grafo():
     filename = 'recommended_movies_graph.png'
 
     return send_file(filename, mimetype='image/png')
+
+
+@app.route("/get_movies", methods=["POST", "GET"])
+def get_movies():
+
+    return jsonify(movies.to_json(orient="records"))
+
+
+@app.route("/add_preferencias", methods= ["POST"])
+def add_preferencias_df():
+    print(request.json)
+
+    #global songs
+    data = pd.DataFrame(data=request.json)
+    print(data)
+
+    #result = pd.concat([songs, data], ignore_index=True)
+    #songs = result
+    #print(songs)
+    
+    return data.to_json()
