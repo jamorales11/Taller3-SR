@@ -18,7 +18,7 @@ export class PreferenciasComponent implements OnInit {
   constructor(private usuarioService: UsuarioService, private router: Router) {
 
     this.usuarioService.get_movies().subscribe((data:any)=>{
-      this.movies = data;
+      this.movies = JSON.parse(data["movies"]);
       console.log(this.movies);
     });
    }
