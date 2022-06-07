@@ -60,6 +60,7 @@ def get_recommendations(movies, ratings, recommendations_user_user, recommendati
     return movies_rec, df_rec
 
 def gen_figure(recom):
+    os.remove('recommended_movies_graph.png')
     G_rec = nx.from_pandas_edgelist(recom, "source", "target", create_using=nx.MultiDiGraph())
 
     plt.figure(figsize=(30,30))
@@ -75,5 +76,5 @@ def gen_figure(recom):
 
     pos = nx.spring_layout(G_rec)
     nx.draw(G_rec, with_labels=True, node_color=color_map, edge_cmap=plt.cm.Blues, pos = pos)
-    #plt.show()
+    plt.show()
     plt.savefig('recommended_movies_graph.png')
