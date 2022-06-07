@@ -3,6 +3,8 @@
 import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
+import os
+
 
 def get_recommendations(movies, ratings, recommendations_user_user, recommendations_content_based):
     starring = movies[['movie_name', 'starring']]
