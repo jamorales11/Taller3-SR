@@ -38,6 +38,21 @@
             <ol class="list-group" *ngFor="let seleccionado of seleccionadas">
                 <li class="list-group-item">{{seleccionadas.indexOf(seleccionado)+1}}. {{seleccionado['title']}}
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end"> 
+
+                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">5</option>
+                        <option value="2">4.5</option>
+                        <option value="3">4</option>
+                        <option value="4">3.5</option>
+                        <option value="5">3</option>
+                        <option value="6">2.5</option>
+                        <option value="7">2</option>
+                        <option value="8">1.5</option>
+                        <option value="9">1</option>
+                        <option value="10">0.5</option>
+                        </select>
+
                     <button type="button" class="btn btn-danger btn me-md-2 btn-sm" (click)="eliminar(seleccionadas.indexOf(seleccionado))">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
                             <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
@@ -48,19 +63,7 @@
                 </li>
             </ol>
 
-            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                <option selected>Open this select menu</option>
-                <option value="1">5</option>
-                <option value="2">4.5</option>
-                <option value="3">4</option>
-                <option value="4">3.5</option>
-                <option value="5">3</option>
-                <option value="6">2.5</option>
-                <option value="7">2</option>
-                <option value="8">1.5</option>
-                <option value="9">1</option>
-                <option value="10">0.5</option>
-              </select>
+            
 
             <button type="button" class="btn btn-primary" [disabled]="!seleccionCompleta" (click)="onGuardar()">Guardar Preferencias</button>
         </div>
