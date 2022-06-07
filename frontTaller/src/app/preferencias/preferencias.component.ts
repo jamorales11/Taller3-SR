@@ -13,7 +13,7 @@ export class PreferenciasComponent implements OnInit {
   seleccionadas: any[] = [];
   
   seleccion: string= "";
-  calificacion: string = "";
+  calificacion: number = 0;
 
   seleccionCompleta: boolean = false;
 
@@ -52,7 +52,7 @@ export class PreferenciasComponent implements OnInit {
     }
 
         this.seleccion = "";
-        this.calificacion = "";
+        this.calificacion = 0;
     
     if(this.seleccionadas.length == 10){
       this.seleccionCompleta = true;
