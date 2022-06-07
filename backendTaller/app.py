@@ -106,8 +106,7 @@ def get_recomendaciones(id):
     img = Image.open(file.stream)
 
     data = file.stream.read()
-    data = base64.encodebytes(data)
-
+    data = base64.b64encode(data).decode()
     print(img.width)
     print(img.height)
     print(data)
@@ -120,5 +119,5 @@ def get_recomendaciones(id):
     #imp_feat = ["Ford", "Ford", "Ford"]
     #imp_user = [{"model": "Mustang"}, {"model": "Mustang"}, {"model": "Mustang"}]
 
-    return jsonify(recommendaciones=recommendations, imagen={'msg': 'success', 'size': [img.width, img.height], 'img': data})
+    return jsonify(recommendaciones=recommendations, imagen={'msg': 'success', 'size': [img.width, img.height], 'format': img.format, 'img': data})
 
