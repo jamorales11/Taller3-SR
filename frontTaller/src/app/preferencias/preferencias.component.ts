@@ -19,6 +19,7 @@ export class PreferenciasComponent implements OnInit {
 
     this.usuarioService.get_movies().subscribe((data:any)=>{
       this.movies = data;
+      console.log(this.movies);
     });
    }
 
