@@ -31,6 +31,9 @@ export class PreferenciasComponent implements OnInit {
   agregarDeBuscador(){
     if(!this.seleccionadas.includes(this.seleccion)){
       this.seleccionadas.push(this.seleccion);
+      
+      console.log(this.seleccionadas);
+
       this.seleccion = "";
 
     }
@@ -69,17 +72,7 @@ export class PreferenciasComponent implements OnInit {
    });
  }
 
- moverArriba(index:number){
-  let temp = this.seleccionadas[index];
-  this.seleccionadas[index] = this.seleccionadas[index-1];
-  this.seleccionadas[index-1] = temp;;
- }
-
- moverAbajo(index:number){
-  let temp = this.seleccionadas[index];
-  this.seleccionadas[index] = this.seleccionadas[index+1];
-  this.seleccionadas[index+1] = temp;
-}
+ 
 
 eliminar(index:number){
   this.seleccionadas.splice(index,1);
