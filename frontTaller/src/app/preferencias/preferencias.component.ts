@@ -37,7 +37,7 @@ export class PreferenciasComponent implements OnInit {
       console.log(this.calificacion);
 
 
-      peli.rating = this.calificacion;
+      peli.rating = Number(this.calificacion);
 
       console.log(peli);
     
