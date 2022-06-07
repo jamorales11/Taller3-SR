@@ -80,9 +80,11 @@ def get_usuario_df(id):
 @app.route("/create_usuario", methods= ["POST"])
 def create_usuario_df():
     global users
+    print(request.json["userId"])
+    print(request.json)
 
     if users.loc[lambda users: users["userId"] == int(request.json["userId"])].empty == True:
-        data = pd.DataFrame(data=int(request.json["userId"]), index=[0])
+        data = pd.DataFrame(data=request.json, index=[0])
         result = pd.concat([users, data], ignore_index=True)
         users = result
         print(users)
