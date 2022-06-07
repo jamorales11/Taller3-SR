@@ -40,6 +40,10 @@ export class UsuarioService {
     return this.http.get(API_URL + 'get_recomendaciones/' + id, this.httpOptions);
   }
 
+  get_grafo(){
+    return this.http.get(API_URL + 'get_grafo', this.httpOptions);
+  }
+
   getLogStatus (){
     return this.loggedIn;
   }

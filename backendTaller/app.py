@@ -1,5 +1,5 @@
 from pyexpat import features
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_file
 from flask_cors import CORS
 import os
 import pandas as pd
@@ -97,20 +97,8 @@ def get_recomendaciones(id):
     type(id)
     
 
-    #recommendations = generate_recommendations(int(id), K_rec, ratings, movies)
-    #print(recommendations)
-
-
-    #para enviar imagen del grafo en Json
-    file = request.files['recommended_movies_graph.png']
-    img = Image.open(file.stream)
-
-    data = file.stream.read()
-    data = base64.b64encode(data).decode()
-    print(img.width)
-    print(img.height)
-    print(data)
-
+    recommendations = generate_recommendations(int(id), K_rec, ratings, movies)
+    print(recommendations)
 
 
     #recommendations = [{"name": "1", "latitude":4.713991455266561, "longitude": -74.0299935}, 
@@ -119,5 +107,11 @@ def get_recomendaciones(id):
     #imp_feat = ["Ford", "Ford", "Ford"]
     #imp_user = [{"model": "Mustang"}, {"model": "Mustang"}, {"model": "Mustang"}]
 
-    return jsonify({'msg': 'success', 'size': [img.width, img.height], 'format': img.format, 'img': data})
+    return jsonify(recommendaciones=recommendations)
 
+
+@app.route("/get_grafo", methods=["POST", "GET"])
+def get_grafo():
+    filename = 'recommended_movies_graph.png'
+
+    return send_file(filename, mimetype='image/png')
