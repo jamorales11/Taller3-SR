@@ -21,13 +21,19 @@ export class RegisterComponent implements OnInit {
     
     console.log(this.nuevoUsuario);
 
-    
-    this.usuarioService.createUsuario(this.nuevoUsuario).subscribe((usuario: any) => {
-      this.nuevoUsuario = usuario;
-      this.usuarioService.idLogged = this.nuevoUsuario.userId;
-      this.usuarioService.setLogStatus(true);
-      this.router.navigate(['/preferencias'])
+    this.usuarioService.get_usuario(this.nuevoUsuario.userId).subscribe( (data:any) => {
+      if (data == false){
+        this.usuarioService.createUsuario(this.nuevoUsuario).subscribe((usuario: any) => {
+          this.nuevoUsuario = usuario;
+          this.usuarioService.idLogged = this.nuevoUsuario.userId;
+          this.usuarioService.setLogStatus(true);
+          this.router.navigate(['/preferencias'])
+        });
+      }
     });
+
+    
+    
     
     return this.nuevoUsuario;
   }
