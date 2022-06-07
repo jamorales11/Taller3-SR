@@ -72,14 +72,10 @@ export class PreferenciasComponent implements OnInit {
    let incidencias : any[] = []; 
    let i = 0;
    while(i<this.seleccionadas.length){
+    var timestamp = new Date().getTime();
+    let incidencia = {"user_id": this.usuarioService.idLogged,'movie_id': this.seleccionadas[i].movie_id, "rating": this.seleccionadas[i].rating, 'timestamp': timestamp};
+    incidencias.push(incidencia);
 
-    let j = 10-i;
-
-    while(j>0){
-      let incidencia = {"user_id": this.usuarioService.idLogged,'movie_id': this.seleccionadas[i].movie_id, "rating": this.seleccionadas[i].rating, 'timestamp': ""};
-      incidencias.push(incidencia);
-      j--;
-    }
     i++;
    }
    console.log(incidencias);
