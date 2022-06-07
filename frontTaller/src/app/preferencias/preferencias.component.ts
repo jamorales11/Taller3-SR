@@ -37,7 +37,7 @@ export class PreferenciasComponent implements OnInit {
       console.log(this.calificacion);
 
 
-      peli.rating = Number(this.calificacion);
+      peli.rating = this.calificacion;
 
       console.log(peli);
     
@@ -46,11 +46,13 @@ export class PreferenciasComponent implements OnInit {
         
         console.log(this.seleccionadas);
 
-        this.seleccion = "";
-        this.calificacion = "";
+        
 
       }
     }
+
+        this.seleccion = "";
+        this.calificacion = "";
     
     if(this.seleccionadas.length == 10){
       this.seleccionCompleta = true;
