@@ -97,8 +97,8 @@ def get_recomendaciones(id):
     type(id)
     
 
-    recommendations = generate_recommendations(int(id), K_rec, ratings, movies)
-    print(recommendations)
+    #recommendations = generate_recommendations(int(id), K_rec, ratings, movies)
+    #print(recommendations)
 
 
     #para enviar imagen del grafo en Json
@@ -119,5 +119,5 @@ def get_recomendaciones(id):
     #imp_feat = ["Ford", "Ford", "Ford"]
     #imp_user = [{"model": "Mustang"}, {"model": "Mustang"}, {"model": "Mustang"}]
 
-    return jsonify(recommendaciones=recommendations, imagen={'msg': 'success', 'size': [img.width, img.height], 'format': img.format, 'img': data})
+    return jsonify({'msg': 'success', 'size': [img.width, img.height], 'format': img.format, 'img': data})
 
