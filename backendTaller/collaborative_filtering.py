@@ -68,4 +68,4 @@ def get_recommendations(ratings, user_id, K_rec):
             ri = ra + num/den
             df_recommendations.loc[df_recommendations['movie_id']==unseen_item, ['prediction']] = ri
     df_recommendations = df_recommendations.sort_values(by='prediction', ascending=False)
-    return sim_users[['user_id']].head(K_rec), df_recommendations.head(K_rec)
+    return sim_users[['user_id', 'similarity']].head(K_rec), df_recommendations.head(K_rec)
